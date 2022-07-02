@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "next": "12.2.0",
@@ -19,6 +21,14 @@
     "@types/react-dom": "18.0.5",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.0",
+    "husky": "^8.0.0",
+    "prettier": "2.7.1",
     "typescript": "4.7.4"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,yml,yaml}": [
+      "eslint --cache --fix"
+    ],
+    "*.{js,jsx,ts,tsx,css,md}": "prettier --write"
   }
 }
